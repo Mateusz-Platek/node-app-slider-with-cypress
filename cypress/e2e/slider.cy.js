@@ -42,3 +42,26 @@ describe('Swiper Gallery Test', function () {
   });
 });
 
+describe('Swiper Gallery Test', function () {
+  it('Checks if slider works on mobile', function () {
+    cy.viewport(1000, 1500)
+    cy.visit('http://localhost:3000');
+    cy.get('.swiper-slide-active').should('contain', 'Rome');
+    cy.get('.swiper-button-next').click({force: true});
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'London');
+  });
+});
+
+describe('Swiper Gallery Test', function () {
+  it('Checks if slider works on mobile', function () {
+    cy.visit('http://localhost:3000');
+    cy.get(".swiper").should("be.visible")
+    cy.get(".swiper-slide-active").should("be.visible")
+    cy.get('.swiper-button-next').click();
+    cy.wait(2000);
+    cy.get(".swiper-slide-active").should("be.visible")
+    cy.get('.swiper-button-next').click({ force: true });
+    cy.wait(2000);
+    cy.get(".swiper-slide-active").should("be.visible")});
+});
